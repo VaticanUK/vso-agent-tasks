@@ -2,7 +2,7 @@
 /// <reference path="../../definitions/Q.d.ts" />
 /// <reference path="../../definitions/vso-task-lib.d.ts" />
 var tl = require("vso-task-lib");
-// content is a folder contain artifacts need to publish.
+// content is a folder contain artifacts needs to publish.
 var content = tl.getPathInput('Content');
 var artifactName = tl.getInput('ArtifactName');
 var artifactType = tl.getInput('ArtifactType');

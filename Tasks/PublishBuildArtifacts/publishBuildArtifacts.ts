@@ -2,12 +2,11 @@
 /// <reference path="../../definitions/Q.d.ts" />
 /// <reference path="../../definitions/vso-task-lib.d.ts" />
 
-import path = require('path');
 import fs = require('fs');
 import Q = require('q');
 var tl = require("vso-task-lib");
 
-// content is a folder contain artifacts need to publish.
+// content is a folder contain artifacts needs to publish.
 var content: string = tl.getPathInput('Content');
 var artifactName: string = tl.getInput('ArtifactName');
 var artifactType: string = tl.getInput('ArtifactType');
@@ -35,7 +34,7 @@ else {
             artifacttype: artifactType,
             artifactname: artifactName
         };
-
+       
         // upload or copy
         if (artifactType === "container") {
             data["containerfolder"] = artifactName;
@@ -44,8 +43,8 @@ else {
         else if (artifactType === "filepath") {
             tl.mkdirP(targetPath);
             tl.cp("-Rf", content, targetPath);
-
-        tl.command("artifact.associate", data, targetPath);
+ 
+            tl.command("artifact.associate", data, targetPath);
         }
     }
     catch (err) {
