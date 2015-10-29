@@ -8,10 +8,6 @@ var artifactName = tl.getInput('ArtifactName');
 var artifactType = tl.getInput('ArtifactType');
 // targetPath is used for file shares
 var targetPath = tl.getInput('TargetPath');
-if (!tl.test(content)) {
-    // nothing to do
-    tl.warning('Artifact Content is not specified to an exist path.');
-}
 if (!artifactName) {
     // nothing to do
     tl.warning('Artifact name is not specified.');
